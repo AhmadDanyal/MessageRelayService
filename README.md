@@ -5,7 +5,7 @@ This project consists of two locally developed solutions containerized and deplo
 This is a Docker and Kubernetes intensive project. For this reason, it is highly recommended to use Docker Desktop as it integrates smoothly with Kubernetes. For API testing, Postman API has been preffered. The use of SQL server is optional as it is used to verify existing data objects, but strictly speaking is not necessary. The links to download all are listed below:
 - [Download Docker Desktop](https://www.docker.com/products/docker-desktop/)
 - [Download Postman API](https://www.postman.com/downloads/)
-- [Download SQL Server Management Studio]([https://www.mongodb.com/try/download/compass](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16) (optional)
+- [Download SQL Server Management Studio](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16) (optional)
 
 Once the downloads are complete, go ahead and pull the project to local system.
 
