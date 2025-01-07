@@ -1,13 +1,19 @@
 ## Microservices Project
-This project consists of two locally developed solutions containerized and deployed in the same Kubernetes cluster, communicating with each other using RabbitMQ message bus service through an Nginx configured endpoint. The service models have been mapped on to each other using AutoMapper. While the Platform Service has been configured to persist in a SQL Server database, the Command Service uses an InMem database to issue commands and run requests.
+This project consists of two locally developed solutions containerized and deployed in the same Kubernetes cluster, communicating with each other using RabbitMQ message bus service through an Nginx configured API gateway. The service models have been mapped on to each other using AutoMapper. While the Platform Service has been configured to persist in a SQL Server database, the Command Service uses an In-Memory database to issue commands and run requests.
 
 ### Setting Up The Project:
-This is a Docker and Kubernetes intensive project. For this reason, it is highly recommended to use Docker Desktop as it integrates smoothly with Kubernetes. For API testing, Postman API has been preffered. The use of SQL server is optional as it is used to verify existing data objects, but strictly speaking is not necessary. The links to download all are listed below:
+This is a Docker and Kubernetes intensive project. For this reason, it is highly recommended to use Docker Desktop as it integrates smoothly with Kubernetes. For API testing, Postman API has been prefered. The use of SQLServer is optional as it is used to verify existing data objects, but strictly speaking is not necessary. You do not need a server instance as the server used inside our cluster is deployed using Kubernetes. The links to download all are listed below:
 - [Download Docker Desktop](https://www.docker.com/products/docker-desktop/)
 - [Download Postman API](https://www.postman.com/downloads/)
 - [Download SQL Server Management Studio](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16) (optional)
 
-Once the downloads are complete, go ahead and pull the project to local system.
+Once the downloads are complete, go ahead and pull the project to local system. There are 3 folders:
+- CommandService
+- K8S
+- PlatformService
+
+To get started, start Docker Desktop and enable Kubernetes. All services needed to run the project have been packed into the K8s folder. Once kubernetes is running, they simply have to be deployed
+
 
 ### Launching MongoDB:
 The next step is to launch an instance of a MongoDB Docker container. Using terminal of choice, enter the following code:
