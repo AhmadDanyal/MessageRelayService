@@ -1,5 +1,5 @@
 ## Microservices Project
-This project consists of 2 locally developed solutions containerized and deployed in the same Kubernetes cluster, communicating with each other using RabbitMQ message bus service through an Nginx configured endpoint.
+This project consists of two locally developed solutions containerized and deployed in the same Kubernetes cluster, communicating with each other using RabbitMQ message bus service through an Nginx configured endpoint. The service models have been mapped on to each other using AutoMapper. While the Platform Service has been configured to persist in a SQL Server database, the Command Service uses an InMem database to issue commands and run requests.
 
 ### Setting Up The Project:
 This project uses a MongoDB docker image for its database and persistent storage. The use of Docker Desktop for this project is completely optional. The preferred GUI for interacting with the database is MongoDB Compass (optional).
