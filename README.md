@@ -2,14 +2,12 @@
 This project consists of two locally developed solutions containerized and deployed in the same Kubernetes cluster, communicating with each other using RabbitMQ message bus service through an Nginx configured endpoint. The service models have been mapped on to each other using AutoMapper. While the Platform Service has been configured to persist in a SQL Server database, the Command Service uses an InMem database to issue commands and run requests.
 
 ### Setting Up The Project:
-This project uses a MongoDB docker image for its database and persistent storage. The use of Docker Desktop for this project is completely optional. The preferred GUI for interacting with the database is MongoDB Compass (optional).
-It also uses Postman API Platform for sending requests, as Swagger has been disabled in app settings. The links for downloading these resources are listed below:
+This is a Docker and Kubernetes intensive project. For this reason, it is highly recommended to use Docker Desktop as it integrates smoothly with Kubernetes. For API testing, Postman API has been preffered. The use of SQL server is optional as it is used to verify existing data objects, but strictly speaking is not necessary. The links to download all are listed below:
+- [Download Docker Desktop](https://www.docker.com/products/docker-desktop/)
 - [Download Postman API](https://www.postman.com/downloads/)
-- [Download Docker Desktop](https://www.docker.com/products/docker-desktop/) (optional)
-- [Download MongoDB Compass](https://www.mongodb.com/try/download/compass) (optional)
+- [Download SQL Server Management Studio]([https://www.mongodb.com/try/download/compass](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16) (optional)
 
-Once the downloads are complete, go ahead and pull the project to local system. As this is a .NET project, any IDE with .NET SDK installed will work. 
-(Visual Studio and Visual Studio Code are preferred).
+Once the downloads are complete, go ahead and pull the project to local system.
 
 ### Launching MongoDB:
 The next step is to launch an instance of a MongoDB Docker container. Using terminal of choice, enter the following code:
