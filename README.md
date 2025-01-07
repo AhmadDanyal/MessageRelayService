@@ -13,6 +13,7 @@ Once the downloads are complete, go ahead and pull the project to local system. 
 - PlatformService
 
 To get started, start Docker Desktop and enable Kubernetes. All services needed to run the project have been packed as **.yaml** files inside the K8s folder, which can be deployed once Kubernetes is up and running. To start deploying the yaml files, navigate to the K8S folder using terminal of choice, and enter the commands in the following order to deploy the services one-by-one:
+(Note: For _mssql-plat-depl.yaml_ file, which sets up the SQL Server, make sure to edit login information to provide your own username and password)
 ```
 kubectl apply -f plaftorms-depl.yaml
 kubectl apply -f commands-depl.yaml
@@ -24,36 +25,31 @@ kubectl apply -f plaftorms-np-srv.yaml
 ```
 
 
-### Launching MongoDB:
-The next step is to launch an instance of a MongoDB Docker container. Using terminal of choice, enter the following code:
+### Configuring the Host:
+The _ingress-srv.yaml_ file uses a dedicated URL instead of localhost to launch the API gateway. To configure this URL, navigate to the **_hosts_** file located inside the the Windows folder of your main drive. This file is usually found at:
 ```
-docker run -d --name <nameofproject> -p 27017:27017 -v <nameofdatabase>:/data/db mongo
+C:\Windows\System32\drivers\etc
 ```
+Type the following inside the file, outside of any comments:
+```
+127.0.0.1 acme.com
+```
+You can use any website name, but just make sure to change it in the _ingress-srv.yaml_ file accordingly.
+
+### Launching Rabbit MQ Message Bu:
+If everything has been done properly, you should be able to launch the Rabbit MQ message bus using the following address:
+```
+localhost:15672
+```
+The default username and password are both "_guest_". You can change this information after logging in.
 
 ### Interacting with the API:
-The last step is to interact with your REST API. To do this, run the project from local repository.
-Once the project is running, open Postman API. In the address bar, type the following:
+To start interacting with the API, open up Postman. The base URL for interacting with the Platform Service (if acme.com was used as the host name) is:
 ```
-https://localhost:5001/items
+http://acme.com/api/platforms
 ```
-Now you're ready to interact with the API!
-
-### Request Types:
-At first, your database will be empty because you haven't added any items. Test out the API in the following request sequence for the best experience.
-#### POST
-Start with a POST request to add some items to the Catalog. Make sure to send a raw JSON object in the body using the following format:
+For interacting with the Command Service, use the following URL:
 ```
-{
-  "name" : "<Name of Object>" (string)
-  "price" : (decimal or int)
-}
+http://acme.com/api/c/platforms
 ```
-This will generate your item with a Guid as ID, the name and price you specified, and the date of creation.
-#### GET
-A GET request will return all the items you added to your database using the POST method.
-#### GET {with id}
-If you paste the id of item at the end of a GET request, you can retrieve that specific item.
-#### PUT {with id}
-A PUT request with the id of the item, and a raw JSON like the one shown in the POST method will allow you to modify that existing item to change its name or price.
-#### DELETE {with id}
-A DELETE request with the id of the item will allow you to delete that particular item.
+These services allow different HTTP requests to be sent (they are not configured with https, just to keep things simple). To find out what type of requests you can send, check out the **Controllers** folder of each project. Both services are configured to handle different types of **GET** and **POST** requests.
