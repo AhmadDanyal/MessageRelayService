@@ -12,7 +12,16 @@ Once the downloads are complete, go ahead and pull the project to local system. 
 - K8S
 - PlatformService
 
-To get started, start Docker Desktop and enable Kubernetes. All services needed to run the project have been packed into the K8s folder. Once kubernetes is running, they simply have to be deployed
+To get started, start Docker Desktop and enable Kubernetes. All services needed to run the project have been packed as **.yaml** files inside the K8s folder, which can be deployed once Kubernetes is up and running. To start deploying the yaml files, navigate to the K8S folder using terminal of choice, and enter the commands in the folloqing order to deploy the services one-by-one:
+```
+kubectl apply -f plaftorms-depl.yaml
+kubectl apply -f commands-depl.yaml
+kubectl apply -f rabbitmq-depl.yaml
+kubectl apply -f mssql-plat-depl.yaml
+kubectl apply -f local-pvc.yaml
+kubectl apply -f ingress-srv.yaml
+kubectl apply -f plaftorms-np-srv.yaml
+```
 
 
 ### Launching MongoDB:
