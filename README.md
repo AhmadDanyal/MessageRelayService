@@ -2,7 +2,7 @@
 This project consists of two locally developed solutions containerized and deployed in the same Kubernetes cluster, communicating with each other using RabbitMQ message bus service through an Nginx configured API gateway. The service models have been mapped on to each other using AutoMapper. While the Platform Service has been configured to persist in a SQL Server database, the Command Service uses an In-Memory database to issue commands and run requests.
 
 ### Setting Up The Project:
-This is a Docker and Kubernetes intensive project. For this reason, it is highly recommended to use Docker Desktop as it integrates smoothly with Kubernetes. For API testing, Postman API has been preferred. The use of SQLServer is optional as it is used to verify existing data objects, but strictly speaking is not necessary. You do not need a server instance as the server used inside our cluster is deployed using Kubernetes. The links to download all are listed below:
+This is a Docker and Kubernetes intensive project. For this reason, it is highly recommended to use Docker Desktop as it integrates smoothly with Kubernetes. For API testing, Postman API has been preferred. The use of SQLServer is optional as it is used to verify existing data objects, but strictly speaking is not necessary. You do not need a server instance as the server used inside our cluster is deployed using Kubernetes. The links to download all of these are listed below:
 - [Download Docker Desktop](https://www.docker.com/products/docker-desktop/)
 - [Download Postman API](https://www.postman.com/downloads/)
 - [Download SQL Server Management Studio](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16) (optional)
@@ -13,6 +13,7 @@ Once the downloads are complete, go ahead and pull the project to local system. 
 - PlatformService
 
 To get started, start Docker Desktop and enable Kubernetes. All services needed to run the project have been packed as **.yaml** files inside the K8s folder, which can be deployed once Kubernetes is up and running. To start deploying the yaml files, navigate to the K8S folder using terminal of choice, and enter the commands in the following order to deploy the services one-by-one:
+
 (Note: For _mssql-plat-depl.yaml_ file, which sets up the SQL Server, make sure to edit login information to provide your own username and password)
 ```
 kubectl apply -f plaftorms-depl.yaml
