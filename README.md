@@ -37,7 +37,7 @@ Type the following inside the file, outside of any comments:
 ```
 You can use any website name, but just make sure to change it in the _ingress-srv.yaml_ file accordingly. Of course you will have to redeploy the _ingress-srv.yaml_ file if you do so, so it is consistent with whatever URL you use.
 
-### Launching Rabbit MQ Message Bu:
+### Launching Rabbit MQ Message Bus:
 If everything has been done properly, you should be able to launch the Rabbit MQ message bus using the following address:
 ```
 localhost:15672
