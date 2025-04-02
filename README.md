@@ -1,5 +1,5 @@
-## Microservices Project
-This project consists of two locally developed solutions containerized and deployed in the same Kubernetes cluster, communicating with each other using RabbitMQ message bus service through an Nginx configured API gateway. The service models have been mapped on to each other using AutoMapper. While the Platform Service has been configured to persist in a SQL Server database, the Command Service uses an In-Memory database to issue commands and run requests.
+## Message Relay Service
+This project consists of two locally developed solutions (a Platform Service and a Command Service) containerized and deployed in the same Kubernetes cluster, communicating with each other using RabbitMQ message bus service through an Nginx configured API gateway. The service models have been mapped on to each other using AutoMapper. The Platform Service has been configured to persist in a SQL Server database, and the Command Service uses an In-Memory database to issue commands and run requests.
 
 ### Setting Up The Project:
 This is a Docker and Kubernetes intensive project. For this reason, it is highly recommended to use Docker Desktop as it integrates smoothly with Kubernetes. For API testing, Postman API has been preferred. The use of SQLServer is optional as it is used to verify existing data objects, but strictly speaking is not necessary. You do not need a server instance as the server used inside our cluster is deployed using Kubernetes. The links to download all of these are listed below:
